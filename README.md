@@ -2,6 +2,10 @@
 
 A flexible and customizable big calendar component for React built with Tailwind CSS.
 
+[![npm version](https://img.shields.io/npm/v/react-tailwind-calendar.svg)](https://www.npmjs.com/package/react-tailwind-calendar)
+[![npm downloads](https://img.shields.io/npm/dm/react-tailwind-calendar.svg)](https://www.npmjs.com/package/react-tailwind-calendar)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
 ## 🌐 Demo
 
 Check out the live demo: **[https://react-tailwind-calendar-nu.vercel.app/](https://react-tailwind-calendar-nu.vercel.app/)**
