@@ -135,7 +135,7 @@ function App() {
             </a>
             <nav className="flex items-center gap-4">
               <a
-                href="https://github.com"
+                href="https://github.com/omerycll/react-tailwind-calendar"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -261,7 +261,7 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
+                  <a href="https://github.com/omerycll/react-tailwind-calendar" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
                     GitHub
                   </a>
                 </li>
@@ -276,7 +276,7 @@ function App() {
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
+                  <a href="https://github.com/omerycll/react-tailwind-calendar/tree/master/example" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
                     Examples
                   </a>
                 </li>
@@ -286,7 +286,7 @@ function App() {
               <h3 className="font-semibold text-gray-900 mb-4">Community</h3>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>
-                  <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
+                  <a href="https://github.com/omerycll/react-tailwind-calendar" target="_blank" rel="noopener noreferrer" className="hover:text-gray-900 transition-colors">
                     GitHub
                   </a>
                 </li>

@@ -2,6 +2,10 @@
 
 A flexible and customizable big calendar component for React built with Tailwind CSS.
 
+## 🌐 Demo
+
+Check out the live demo: **[https://react-tailwind-calendar-nu.vercel.app/](https://react-tailwind-calendar-nu.vercel.app/)**
+
 ## Installation
 
 ```bash

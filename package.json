@@ -1,6 +1,6 @@
 {
   "name": "react-tailwind-calendar",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A flexible and customizable big calendar component for React",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -35,8 +35,9 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/your-username/react-tailwind-calendar.git"
+    "url": "https://github.com/omerycll/react-tailwind-calendar.git"
   },
+  "homepage": "https://react-tailwind-calendar-nu.vercel.app/",
   "peerDependencies": {
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
