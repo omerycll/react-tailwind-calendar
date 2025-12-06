@@ -30,10 +30,11 @@ npm run preview
 
 1. [Vercel](https://vercel.com) hesabı oluşturun
 2. GitHub repository'nizi bağlayın
-3. Root directory olarak `example` klasörünü seçin
-4. Build settings:
-   - Build Command: `cd .. && npm run build && cd example && npm install && npm run build`
-   - Output Directory: `example/dist`
-   - Install Command: `cd example && npm install`
+3. **Root directory** olarak `example` klasörünü seçin
+4. Vercel otomatik olarak yapılandırmayı algılayacak:
+   - Build Command: `npm run build`
+   - Output Directory: `dist`
+   - Install Command: `npm install`
 5. Deploy edin!
 
+**Not:** Paket npm'den yükleneceği için ekstra yapılandırma gerekmez.
