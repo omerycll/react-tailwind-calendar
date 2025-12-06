@@ -289,7 +289,7 @@ const DefaultAvatarRoot: React.FC<AvatarRootProps> = ({
   className,
   ...props
 }) => (
-  <div className={cn('relative flex shrink-0 items-center justify-center rounded-full', className)} {...props}>
+  <div className={cn('relative flex h-5 w-5 shrink-0 items-center justify-center overflow-hidden rounded-full', className)} {...props}>
     {children}
   </div>
 );
@@ -300,7 +300,7 @@ const DefaultAvatarImage: React.FC<AvatarImageProps> = ({
   className,
   ...props
 }) => (
-  <img src={src} alt={alt} className={cn('size-full rounded-full object-cover', className)} {...props} />
+  <img src={src} alt={alt} className={cn('h-full w-full rounded-full object-cover', className)} {...props} />
 );
 
 const DefaultAvatarGroupRoot: React.FC<{
@@ -308,7 +308,7 @@ const DefaultAvatarGroupRoot: React.FC<{
   children: React.ReactNode;
   className?: string;
 }> = ({ children, className, ...props }) => (
-  <div className={cn('flex *:ring-2 *:ring-stroke-white-0 -space-x-1', className)} {...props}>
+  <div className={cn('flex items-center *:ring-2 *:ring-stroke-white-0 -space-x-1', className)} {...props}>
     {children}
   </div>
 );

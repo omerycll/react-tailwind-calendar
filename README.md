@@ -29,13 +29,40 @@ This component uses Tailwind CSS classes and requires Tailwind CSS to be configu
 
 - `tailwindcss` installed and configured
 - Tailwind CSS classes available in your project
-- The following custom classes available (or you can customize them):
-  - `calendar-disabled-hour` - for disabled time slots styling
+
+#### Required Tailwind Configuration
+
+The component uses custom Tailwind colors and text sizes. You need to configure these in your `tailwind.config.js`:
+
+**Custom Colors:**
+
+- `bg-information-lighter`, `bg-warning-lighter`, `bg-away-lighter`, `bg-success-lighter`, `bg-error-lighter`
+- `bg-bg-white-0`, `bg-bg-weak-50`
+- `text-text-strong-950`, `text-text-sub-600`, `text-text-soft-400`
+- `border-stroke-soft-200`
+
+**Custom Text Sizes:**
+
+- `text-label-xs`, `text-label-sm`
+- `text-subheading-2xs`
+- `text-paragraph-xs`
+
+#### Custom CSS
+
+The component automatically injects the required CSS styles when imported. The `.calendar-disabled-hour` class is used for styling disabled time slots and is automatically available - no manual import needed!
+
+If you need to customize the disabled hour styling, you can override the CSS variable:
+
+```css
+:root {
+  --stroke-soft-200: 220 13% 91%; /* Default gray color */
+}
+```
 
 ## Usage
 
 ```tsx
-import { BigCalendar, type CalendarData } from 'react-tailwind-calendar';
+import {BigCalendar, type CalendarData} from 'react-tailwind-calendar';
 
 const events: CalendarData[] = [
   {
@@ -61,67 +88,4 @@ function App() {
 
 ## Props
 
-### BigCalendar
-
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `defaultStartDate` | `Date` | **required** | The initial start date for the calendar view |
-| `events` | `CalendarData[]` | **required** | Array of calendar events to display |
-| `totalShowingDays` | `number` | `6` | Number of days to show in the calendar |
-| `showAllHours` | `boolean` | `false` | Whether to show all 24 hours or only hours with events |
-| `timeFormat` | `'12h' \| '24h'` | `'12h'` | Time format for display |
-| `onSlotClick` | `(data: SlotClickData) => void` | - | Callback when a time slot is clicked |
-| `onEventClick` | `(event: CalendarData, date: Date) => void` | - | Callback when an event is clicked |
-| `workingHours` | `WorkingHoursConfig` | - | Working hours configuration for each day |
-| `shifts` | `ShiftData[]` | - | Shift data to display on the calendar |
-| `avatarComponent` | `AvatarComponent` | - | Custom avatar component |
-| `avatarGroupComponent` | `AvatarGroupComponent` | - | Custom avatar group component |
-| `className` | `string` | - | Additional CSS classes |
-
-### CalendarData
-
-```typescript
-type CalendarData = {
-  id: string;
-  startDate: Date;
-  endDate: Date;
-  title?: string;
-  type?: 'meeting' | 'event' | 'default';
-  location?: string;
-  link?: string;
-  platform?: string;
-  people?: {
-    image: string;
-    alt: string;
-    color?: AvatarColor;
-  }[];
-  completed?: boolean;
-  disabled?: boolean;
-};
-```
-
-## Development
-
-```bash
-# Install dependencies
-npm install
-
-# Build the package
-npm run build
-
-# Watch mode for development
-npm run dev
-```
-
-## Publishing
-
-Before publishing to npm, make sure to:
-
-1. Update the version in `package.json`
-2. Build the package: `npm run build`
-3. Update the repository URL in `package.json` if needed
-4. Publish: `npm publish`
-
-## License
-
-MIT
+See the component's TypeScript definitions for all available props.

@@ -1,6 +1,6 @@
 {
   "name": "react-tailwind-calendar",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A flexible and customizable big calendar component for React",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
@@ -10,10 +10,11 @@
       "types": "./dist/index.d.ts",
       "import": "./dist/index.mjs",
       "require": "./dist/index.js"
-    }
+    },
+    "./styles.css": "./dist/styles.css"
   },
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "build": "tsup src/index.ts --format cjs,esm --dts && cp src/styles.css dist/styles.css",
     "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
     "prepublishOnly": "npm run build"
   },

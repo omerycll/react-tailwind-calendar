@@ -1,0 +1,32 @@
+# Source files (only dist is published)
+src/
+example/
+
+# Development files
+*.log
+*.tsbuildinfo
+.DS_Store
+.vscode/
+.idea/
+
+# Git
+.git/
+.gitignore
+
+# Dependencies
+node_modules/
+
+# Build artifacts (except dist)
+*.map
+
+# Documentation (except README.md)
+DEPLOY.md
+*.md
+!README.md
+
+# Config files
+tsconfig.json
+vite.config.*
+tailwind.config.*
+postcss.config.*
+

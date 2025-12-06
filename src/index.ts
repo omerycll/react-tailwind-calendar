@@ -1,4 +1,7 @@
-export { BigCalendar } from './big-calendar';
+// Auto-inject styles
+import './styles';
+
+export {BigCalendar} from './big-calendar';
 export type {
   CalendarData,
   WorkingHoursItem,
@@ -11,4 +14,3 @@ export type {
   AvatarComponent,
   AvatarGroupComponent,
 } from './big-calendar';
-

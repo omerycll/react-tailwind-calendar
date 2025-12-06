@@ -1,0 +1,13 @@
+/* Custom CSS for react-tailwind-calendar */
+
+/* Disabled hour styling - shows diagonal stripes for non-working hours */
+/* Note: This uses a CSS variable that should be defined in your Tailwind config */
+/* You can customize the color by overriding the --stroke-soft-200 variable */
+.calendar-disabled-hour {
+  background: repeating-linear-gradient(
+      -60deg,
+      hsl(var(--stroke-soft-200, 220 13% 91%)) 0 1px,
+      transparent 1px 8px
+    ) -4px
+    50% / 200% 120px;
+}
