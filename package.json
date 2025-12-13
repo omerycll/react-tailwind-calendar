@@ -1,6 +1,6 @@
 {
   "name": "react-tailwind-calendar",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A flexible and customizable big calendar component for React",
   "main": "./dist/index.js",
   "module": "./dist/index.mjs",
