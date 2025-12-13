@@ -283,6 +283,17 @@ export type ShiftData = {
   type?: 'working' | 'break' | 'unavailable';
 };
 
+// Day Labels Type for localization
+export type DayLabels = {
+  sunday: string;
+  monday: string;
+  tuesday: string;
+  wednesday: string;
+  thursday: string;
+  friday: string;
+  saturday: string;
+};
+
 // Default Avatar components (minimal implementation)
 const DefaultAvatarRoot: React.FC<AvatarRootProps> = ({
   children,
@@ -483,6 +494,9 @@ export type SlotClickData = {
   time: string; // HH:mm (24h) or h:mm aa (12h) format based on timeFormat
 };
 
+// Week starts on type (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+export type WeekStartsOn = 0 | 1 | 2 | 3 | 4 | 5 | 6;
+
 type BigCalendarProps = {
   defaultStartDate: Date;
   totalShowingDays?: number;
@@ -496,6 +510,37 @@ type BigCalendarProps = {
   shifts?: ShiftData[];
   avatarComponent?: AvatarComponent;
   avatarGroupComponent?: AvatarGroupComponent;
+  dayLabels?: DayLabels;
+  weekStartsOn?: WeekStartsOn;
+};
+
+// Default day labels (English)
+const DEFAULT_DAY_LABELS: DayLabels = {
+  sunday: 'Sun',
+  monday: 'Mon',
+  tuesday: 'Tue',
+  wednesday: 'Wed',
+  thursday: 'Thu',
+  friday: 'Fri',
+  saturday: 'Sat',
+};
+
+// Day label keys in order (0 = Sunday, 1 = Monday, ..., 6 = Saturday)
+const DAY_LABEL_KEYS: (keyof DayLabels)[] = [
+  'sunday',
+  'monday',
+  'tuesday',
+  'wednesday',
+  'thursday',
+  'friday',
+  'saturday',
+];
+
+// Calculate the start of the week based on weekStartsOn
+const getWeekStart = (date: Date, weekStartsOn: WeekStartsOn): Date => {
+  const currentDay = getDay(date);
+  const diff = (currentDay - weekStartsOn + 7) % 7;
+  return subDays(date, diff);
 };
 
 export function BigCalendar({
@@ -511,9 +556,18 @@ export function BigCalendar({
   shifts,
   avatarComponent,
   avatarGroupComponent,
+  dayLabels,
+  weekStartsOn,
 }: BigCalendarProps) {
+  const labels = dayLabels || DEFAULT_DAY_LABELS;
+
+  // Calculate initial start date based on weekStartsOn
+  const initialStartDate = weekStartsOn !== undefined
+    ? getWeekStart(defaultStartDate, weekStartsOn)
+    : defaultStartDate;
+
   const [currentStartDate, setCurrentStartDate] =
-    React.useState(defaultStartDate);
+    React.useState(initialStartDate);
 
   const showingDays = Array.from({ length: totalShowingDays }, (_, i) =>
     addDays(currentStartDate, i),
@@ -641,14 +695,18 @@ export function BigCalendar({
             <div className='sticky top-0 z-20 overflow-hidden rounded-tr-xl bg-bg-white-0'>
               <header className='flex divide-x divide-stroke-soft-200'>
                 <div className='grid w-full auto-cols-[200px] grid-flow-col divide-x divide-stroke-soft-200'>
-                  {showingDays.map((day, index) => (
-                    <div
-                      key={index}
-                      className='flex h-8 items-center justify-center border-b border-stroke-soft-200 bg-bg-weak-50 text-center text-label-xs text-text-soft-400'
-                    >
-                      {format(day, 'dd EEE').toUpperCase()}
-                    </div>
-                  ))}
+                  {showingDays.map((day, index) => {
+                    const dayIndex = getDay(day);
+                    const dayLabel = labels[DAY_LABEL_KEYS[dayIndex]];
+                    return (
+                      <div
+                        key={index}
+                        className='flex h-8 items-center justify-center border-b border-stroke-soft-200 bg-bg-weak-50 text-center text-label-xs text-text-soft-400'
+                      >
+                        {format(day, 'dd')} {dayLabel.toUpperCase()}
+                      </div>
+                    );
+                  })}
                 </div>
               </header>
             </div>

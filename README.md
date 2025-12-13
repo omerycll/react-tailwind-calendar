@@ -96,4 +96,72 @@ function App() {
 
 ## Props
 
-See the component's TypeScript definitions for all available props.
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `defaultStartDate` | `Date` | **required** | The starting date for the calendar view |
+| `events` | `CalendarData[]` | **required** | Array of calendar events to display |
+| `totalShowingDays` | `number` | `6` | Number of days to show in the calendar |
+| `className` | `string` | - | Custom CSS class for the calendar container |
+| `showAllHours` | `boolean` | `false` | Show all 24 hours regardless of events |
+| `timeFormat` | `'12h' \| '24h'` | `'12h'` | Time display format |
+| `onSlotClick` | `(data: SlotClickData) => void` | - | Callback when an empty slot is clicked |
+| `onEventClick` | `(event: CalendarData, date: Date) => void` | - | Callback when an event is clicked |
+| `workingHours` | `WorkingHoursConfig` | - | Configuration for working hours |
+| `shifts` | `ShiftData[]` | - | Array of shift data to display |
+| `dayLabels` | `DayLabels` | English labels | Custom day labels for localization |
+| `weekStartsOn` | `WeekStartsOn` | - | Day the week starts on (0=Sunday, 1=Monday, etc.) |
+| `avatarComponent` | `AvatarComponent` | - | Custom avatar component |
+| `avatarGroupComponent` | `AvatarGroupComponent` | - | Custom avatar group component |
+
+## Localization (Day Labels)
+
+You can customize the day labels for different languages:
+
+```tsx
+import { BigCalendar, DayLabels } from 'react-tailwind-calendar';
+
+// Turkish day labels
+const turkishDayLabels: DayLabels = {
+  sunday: 'Paz',
+  monday: 'Pzt',
+  tuesday: 'Sal',
+  wednesday: 'Çar',
+  thursday: 'Per',
+  friday: 'Cum',
+  saturday: 'Cmt',
+};
+
+<BigCalendar
+  defaultStartDate={new Date()}
+  events={events}
+  dayLabels={turkishDayLabels}
+/>
+```
+
+## Week Start Day
+
+You can configure which day the week starts on:
+
+```tsx
+import { BigCalendar } from 'react-tailwind-calendar';
+
+// Week starts on Monday
+<BigCalendar
+  defaultStartDate={new Date()}
+  events={events}
+  weekStartsOn={1}  // 0=Sunday, 1=Monday, 2=Tuesday, etc.
+  totalShowingDays={7}
+/>
+```
+
+| Value | Day |
+|-------|-----|
+| `0` | Sunday |
+| `1` | Monday |
+| `2` | Tuesday |
+| `3` | Wednesday |
+| `4` | Thursday |
+| `5` | Friday |
+| `6` | Saturday |
+
+When `weekStartsOn` is set, the calendar will automatically adjust to start from that day of the week, regardless of what `defaultStartDate` is.

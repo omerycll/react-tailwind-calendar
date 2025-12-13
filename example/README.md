@@ -10,7 +10,8 @@ npm install
 
 ## Geliştirme
 
-```bash
+```bash"
+?
 npm run dev
 ```
 

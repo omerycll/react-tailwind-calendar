@@ -17,3 +17,4 @@ Bu workflow, yeni bir release oluşturulduğunda veya manuel olarak tetiklendiğ
 - Otomatik: Yeni bir GitHub release oluşturduğunuzda otomatik olarak publish edilir
 - Manuel: Actions sekmesinden "Publish to npm" workflow'unu manuel olarak çalıştırabilirsiniz
 
+

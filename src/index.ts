@@ -13,4 +13,6 @@ export type {
   AvatarImageProps,
   AvatarComponent,
   AvatarGroupComponent,
+  DayLabels,
+  WeekStartsOn,
 } from './big-calendar';
